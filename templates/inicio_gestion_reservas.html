@@ -1,0 +1,23 @@
+{% extends "base_template.html" %}
+
+{% block titulo %}Sistema de Gestión de Reservas{% endblock titulo %}
+
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="../static/estilos/estilos_jinja.css"> <!-- header/navbar -->
+{% endblock estilos_adicionales %}
+
+{% block contenido %}
+    <h1 class="texto-centrado padding-alrededor">Bienvenidos al Sistema de Gestión de Reservas</h1>
+    <h2 class="texto-centrado padding-alrededor">¿Qué gestión desea realizar?</h2>
+
+    <p>NO TE OLVIDES QUE SI QUERÉS MODIFICAR LOS ESTILOS DE LOS HTML DE LAS RESERVAS TENES QUE MODIFICAR EL ARCHIVO "estilos_jinja.css"</p>
+
+    <div class="contenedor-acciones">
+
+        <a class="btn-inicio-gestion-reservas" href="{{url_for('listar_clientes')}}">Listar todos los Clientes</a>
+        <a class="btn-inicio-gestion-reservas" href="{{url_for('listar_reservas')}}">Listar todas las Reservas</a>
+        <a class="btn-inicio-gestion-reservas" href="{{url_for('crear_reserva')}}">Crear nueva Reserva</a>
+
+
+    </div>
+{% endblock contenido %}

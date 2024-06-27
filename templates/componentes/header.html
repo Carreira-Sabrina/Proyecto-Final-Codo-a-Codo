@@ -1,0 +1,39 @@
+
+{% block header %}
+    <!-- HEADER, incluye logo y nav-->
+    <header class="encabezado padding-alrededor">
+        <div class="contenedor-logo">  
+            <a class="logo" href="index.html">Argentina a un Click !</a>
+        </div><!--fin del logo-->
+
+        <!--NAV-->
+        <nav id="nav__contenedor">
+            <ul class="nav__lista-links">
+                <li class="nav__link-simple">
+                    <a href="{{url_for('index')}}">Inicio</a>
+                </li>
+                <li class="link-con-submenu">
+                    Nuestros Hoteles <span><i class="fa-solid fa-caret-down"></i></span>
+                    <!-- ACA VA UN SUBMENU-->
+                    <ul class="nav__submenu">
+                        <li class="nav__submenu-item"><a href="../templates/pages/hoteles/jujuy/jujuy.html">Hotel Jujuy</a></li>
+                        <li class="nav__submenu-item"><a href="../templates/pages/hoteles/lagos-del-sur/bariloche.html">Lagos del Sur</a></li>
+                        <li class="nav__submenu-item"><a href="../templates/pages/hoteles/aura-patagonia/aura-patagonia.html">Aura Patagonia</a></li>
+                    </ul><!--fin del submenu-->
+                </li><!--fin del link con submenu-->
+                <li class="nav__link-simple">
+                    <a href="../templates/pages/contacto.html">Contacto</a>
+                </li>
+                <li  class="nav__link-simple">
+                    <a href="../templates/pages/aboutUs.html">Acerca de nosotros...</a>
+                </li>
+                <li  class="nav__link-simple">
+                    <a href="{{url_for('inicio_gestion_reservas')}}">Gestión de reservas</a>
+                </li>
+            </ul>    
+        </nav><!--fin del NAV-->
+        <!--ESTE ES EL BOTON QUE MUESTRA EL MENU EN LAS PANTALLAS MÁS PEQUEÑAS. NO DEBE VERSE EN MODO ESCRITORIO-->
+        <button id="btn__menu-movil"><i class="fa-solid fa-bars"></i></button>
+    </header><!--fin del header-->
+
+{% endblock header%}
