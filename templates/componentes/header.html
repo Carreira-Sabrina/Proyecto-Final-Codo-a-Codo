@@ -10,7 +10,7 @@
         <nav id="nav__contenedor">
             <ul class="nav__lista-links">
                 <li class="nav__link-simple">
-                    <a href="index.html">Inicio</a>
+                    <a href="{{url_for('index')}}">Inicio</a>
                 </li>
                 <li class="link-con-submenu">
                     Nuestros Hoteles <span><i class="fa-solid fa-caret-down"></i></span>
@@ -28,7 +28,7 @@
                     <a href="../templates/pages/aboutUs.html">Acerca de nosotros...</a>
                 </li>
                 <li  class="nav__link-simple">
-                    <a href="">Gestión de reservas</a>
+                    <a href="{{url_for('inicio_gestion_reservas')}}">Gestión de reservas</a>
                 </li>
             </ul>    
         </nav><!--fin del NAV-->
