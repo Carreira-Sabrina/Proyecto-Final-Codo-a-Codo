@@ -1,8 +1,9 @@
 from modelos.entidades import Cliente
 
 
-#clientes = Cliente.obtener_todos_de_tabla()
-#print(clientes)
+clientes = Cliente.obtener_todos_de_tabla()
+for cliente in clientes:
+    print(cliente.__dict__)
 
 #Se busca el objeto con el id 4
 
@@ -12,7 +13,7 @@ from modelos.entidades import Cliente
 #print(f"El cliente con el id {cliente_4.id} se llama {cliente_4.nombre} {cliente_4.apellido}")
 
 #Intento borrar el ciente 3
-Cliente.eliminar_de_tabla(3)
+#Cliente.eliminar_de_tabla(3)
 
 
 
