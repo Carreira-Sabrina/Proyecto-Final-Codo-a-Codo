@@ -7,8 +7,10 @@ for cliente in clientes:
 
 #Se busca el objeto con el id 4
 
-#cliente_4 = Cliente.obtener_objeto_de_tabla(4)
-#print(cliente_4)
+cliente_4 = Cliente.obtener_objeto_de_tabla(4)
+print("-----------------------------------------------------------------")
+print("Datos del cliente 4")
+print(cliente_4.__dict__)
 
 #print(f"El cliente con el id {cliente_4.id} se llama {cliente_4.nombre} {cliente_4.apellido}")
 
