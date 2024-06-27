@@ -16,10 +16,10 @@ def listar_clientes():
 
 
 @app.route("/listar_reservas")
-def listar_clientes():
+def listar_reservas():
     return render_template("listar_reservas.html")
 
 
-@app.route("/nueva_reserva")
-def listar_clientes():
-    return render_template("nueva_reserva.html")
+@app.route("/crear_reserva")
+def crear_reserva():
+    return render_template("crear_reserva.html")
