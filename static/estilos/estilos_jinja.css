@@ -1,0 +1,11 @@
+h1{
+    color: var(--color-dogwood-rose)
+}
+
+
+.btn-inicio-gestion-reservas{
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    color:whitesmoke;
+    background-color: var(--color-raspberry);
+}
