@@ -73,9 +73,6 @@ class ModeloBase():
         return cls.__convertir_registros_en_objetos(resultado_consulta) #Ahora si devuelve una lista de objetos !
 
         
-        
-
-
     @classmethod
     def obtener_objeto_de_tabla(cls,id):
         consulta_sql= f"SELECT * FROM {cls.tabla} WHERE id= %s"
@@ -128,6 +125,13 @@ class ModeloBase():
         #Como viene lo que hay que actualizar????
         #Como se que clase de objeto es si vienen campos del input? => cada tipo de tabla deberia mandar el json de un objeto, la clase de objeto
         #podria depender del contexto...
+        
+        # SE ME OCURRE QUE...
+        # UN BOTON "MODIFICAR" TE ENVIA A UN FORM, CON EL ID QUE REDIRECCIONA SE BUSCAN LOS DATOS DE LA TABLA
+        # CON ESO SE CREA UN OBJETO (la clase está vinculada a la pagina...ponele) PRECESO EL OBJETO PARA USAR SU FUNCION
+        # LO QUE SALE DEL FORM SE TOMA COMO value1,value2 etc
+        # SE ACTUALIZAN TODOS LOS DATOS DEL OBJETO MENOS EL ID 
+        
         
         
         pass
