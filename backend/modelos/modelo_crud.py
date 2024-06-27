@@ -68,12 +68,51 @@ class ModeloBase():
             cursor = cls.conexion.cursor()
 
         cursor.execute(consulta)
-        resultado_consulta = cursor.fetchall()
+        
         
         
         cls.conexion.close()
+
+        print("Objeto borrado")
+
+
+    @classmethod
+    def obtener_objeto_de_tabla(cls,id):
+        consulta_sql= f"SELECT * FROM {cls.tabla} WHERE id= %s"
+        parametros_consulta = (id,) #se convierte en tupla 
         
-        #Tengo que devolver una lista de instancias de una clase !
-        objetos_a_retornar = [cls(registro) for registro in resultado_consulta]
+        try:
+            cursor = cls.conexion.cursor()
+        except Exception as e:
+            cls.conexion.connect()
+            cursor = cls.conexion.cursor()
+
+        cursor.execute(consulta_sql,parametros_consulta)
+        resultado_consulta = cursor.fetchone()
+        cls.conexion.close()
         
-        return objetos_a_retornar
+        #Devuelvo el objeto 
+        objeto_a_retornar = cls(resultado_consulta)
+        return objeto_a_retornar
+
+
+    @classmethod
+    def eliminar_de_tabla(cls,id):
+        #primero se obtiene el objeto de la tabla y luego se elimina
+        objeto_a_eliminar = cls.obtener_objeto_de_tabla(id)
+        consulta_eliminar = f"DELETE FROM {cls.tabla} WHERE id=%s"
+        parametros_consulta = (id,)#Siempre como tupla
+        try:
+            cursor = cls.conexion.cursor()
+        except Exception as e:
+            cls.conexion.connect()
+            cursor = cls.conexion.cursor()
+
+        cursor.execute(consulta_eliminar,parametros_consulta)
+        cls.conexion.commit()
+        cls.conexion.close()
+    
+    
+    @classmethod
+    def __convertir_registro_en_objeto(cls,resultado_consulta):
+        return [cls(registro) for registro in resultado_consulta]
