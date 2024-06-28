@@ -4,13 +4,6 @@ from app import app
 
 
 
-#El bienamado index
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-
 @app.route("/inicio_gestion_reservas")
 def inicio_gestion_reservas():
     return render_template("inicio_gestion_reservas.html")
