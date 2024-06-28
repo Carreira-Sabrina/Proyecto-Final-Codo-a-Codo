@@ -19,4 +19,4 @@ parametros_conexion_desarrollo_dummy={
 #Conectar con la BD 
 
 #se ponen ** antes del diccionario pasado como parámetro para que lo tome como **kwargs
-conexion =connector.connect(**parametros_conexion_desarrollo)
+conexion =connector.connect(**parametros_conexion_desarrollo_dummy)
