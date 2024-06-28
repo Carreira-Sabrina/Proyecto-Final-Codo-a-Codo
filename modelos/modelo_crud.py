@@ -118,7 +118,7 @@ class ModeloBase():
     
     
     @classmethod
-    def actualizar_tabla(cls,registro):
+    def actualizar_registro_tabla(cls,registro):
         
         #UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
         
@@ -131,6 +131,8 @@ class ModeloBase():
         # CON ESO SE CREA UN OBJETO (la clase está vinculada a la pagina...ponele) PRECESO EL OBJETO PARA USAR SU FUNCION
         # LO QUE SALE DEL FORM SE TOMA COMO value1,value2 etc
         # SE ACTUALIZAN TODOS LOS DATOS DEL OBJETO MENOS EL ID 
+        # CUIDADO PORQUE SI EL FORMULARIO ESTÁ EN EL FRONT LOS DATOS TIENEN QUE VENIR COMO JSON !
+        
         
         
         

@@ -6,6 +6,7 @@ from app import app
 
 
 from modelos.entidades import Cliente
+from modelos.entidades import Excursion
 
 @app.route("/api/obtener_clientes")
 def api_obtener_clientes():
@@ -31,3 +32,12 @@ def api_obtener_cliente_por_id(id):
     
     #Devuelvo un json que será consumido... en alguna parte
     return jsonify(diccionario_cliente)
+
+
+#Trae los datos de las excursiones de la BD para generar el contenido de "excursiones.html" dinámicamente
+@app.route("/api/obtener_excursiones")
+def api_obtener_excursiones():
+    excursiones = Excursion.obtener_todos_de_tabla()
+    lista_diccionarios_excursiones = [vars(excursion) for excursion in excursiones]
+    
+    return jsonify(lista_diccionarios_excursiones)
