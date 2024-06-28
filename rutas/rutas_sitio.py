@@ -1,24 +1,23 @@
 from flask import render_template
+from flask import url_for
 from app import app
+from modelos.entidades import Excursion
+
+#MACHETE PARA EL INDEX
+#  <a class="post-bnt-acciones editar" href="{{url_for('editar_post', id=post[0])}}">Editar post</a>
 
 
 
+@app.route("/")
+def index():
+    #Se obtienen las excursiones
+    excursiones = Excursion.obtener_todos_de_tabla()
+    
+    return render_template("index.html",info = excursiones) # Acá habría que pasar los datos para ya mostar las excursiones !
 
-@app.route("/inicio_gestion_reservas")
-def inicio_gestion_reservas():
-    return render_template("inicio_gestion_reservas.html")
-
-
-@app.route("/listar_clientes")
-def listar_clientes():
-    return render_template("listar_clientes.html")
-
-
-@app.route("/listar_reservas")
-def listar_reservas():
-    return render_template("listar_reservas.html")
+@app.route("/acerca-de-nosotros")
+def about_us():
+    return render_template("about-us.html") 
 
 
-@app.route("/crear_reserva")
-def crear_reserva():
-    return render_template("crear_reserva.html")
+

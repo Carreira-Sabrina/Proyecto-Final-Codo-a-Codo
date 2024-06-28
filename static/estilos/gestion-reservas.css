@@ -1,0 +1,48 @@
+/*Variables */
+/*===========*/
+:root{
+    /*Colores*/
+    --color-eerie-black: #1B1B1E;
+    --color-honeydew: #F3FCF0;
+    --color-magenta-dye: #B81365; 
+    --color-caribbean-current: #00798C; 
+    --color-orange-web: #FAA916;
+}
+
+
+.tarjeta-excursion{
+    margin-bottom: 1.5rem;
+    border: 2px solid  var(--color-eerie-black);
+    border-radius: 1.75rem;
+}
+
+.tarjeta-excursion__titulo h2{
+    margin-bottom: 1.5rem;
+}
+
+
+
+.datos-excursion{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.75fr;
+    align-items: center;
+    justify-items: center;
+    column-gap: 1rem;
+}
+
+.btn-accion{
+    display: inline-block;
+    padding: 14px 22px;
+    color: var(--color-honeydew);
+    border-radius: 12px;
+    font-weight: bold;
+    
+}
+
+.btn.btn-modificar{
+    background-color: var(--color-caribbean-current);
+}
+
+.btn.btn-eliminar{
+    background-color: var(--color-magenta-dye);
+}
