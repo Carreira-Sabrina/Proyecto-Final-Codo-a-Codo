@@ -120,6 +120,8 @@ class ModeloBase():
     @classmethod
     def actualizar_registro_tabla(cls,registro):
         
+        
+        
         #UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
         
         # ME TIENE QUE LLEGAR UNA TUPLA CON LO QUE DICE EL FORM 
