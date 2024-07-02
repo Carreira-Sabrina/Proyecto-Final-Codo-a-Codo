@@ -122,18 +122,41 @@ class ModeloBase():
         
         #UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
         
-        #Como viene lo que hay que actualizar????
-        #Como se que clase de objeto es si vienen campos del input? => cada tipo de tabla deberia mandar el json de un objeto, la clase de objeto
-        #podria depender del contexto...
+        # ME TIENE QUE LLEGAR UNA TUPLA CON LO QUE DICE EL FORM 
+        # TIPO tupla("1","Viñedos la Patoneta", "tomate un vinito",Mendoza","10000","url de imagen")
         
-        # SE ME OCURRE QUE...
-        # UN BOTON "MODIFICAR" TE ENVIA A UN FORM, CON EL ID QUE REDIRECCIONA SE BUSCAN LOS DATOS DE LA TABLA
-        # CON ESO SE CREA UN OBJETO (la clase está vinculada a la pagina...ponele) PRECESO EL OBJETO PARA USAR SU FUNCION
-        # LO QUE SALE DEL FORM SE TOMA COMO value1,value2 etc
-        # SE ACTUALIZAN TODOS LOS DATOS DEL OBJETO MENOS EL ID 
-        # CUIDADO PORQUE SI EL FORMULARIO ESTÁ EN EL FRONT LOS DATOS TIENEN QUE VENIR COMO JSON !
+        #De la tupla que recibo del form tengo que discriminar el id porque no se actualiza ! (y lo tengo que pasar a tupla para pasarlo como parametro a la consulta)
+        id = (registro[0],)
+        
+        #Elimino a "id" de la lista de campos
+        campos_sin_id = cls.campos[1:]
+        
+        #También elimino el valor del id porque NO SE PUEDE REEMPLAZAR
+        valores_del_form_sin_id = registro[1:] #Se asume por ahora que el id va a venir en la tupla enviada por el form
+        
+        #Le tome el gustito al list comprehension
+        #Qué  es esa linea tan fea como la conciencia de Megatron?
+        # Primero convierte el contenido de la tupla de lo que viene del form con str()
+        # Luego hago una lista de pares variable = valor con zip
+        #Cambio las comillas dobles por backticks que es como las toma la consulta SQL
+        # Como todo eso quedó entre [] por ser un list comprehension, quité las llaves
+        
+        set_string = str([f"`{variable}` = '{valor}'" for variable,valor in zip(campos_sin_id,valores_del_form_sin_id)]).replace('"',"").replace("[","").replace("]","")
+        
+        #Se arma dinámicamente el string de la consulta SQL
+        consulta_update = f"UPDATE {cls.tabla} SET {set_string} WHERE ID = %s"
+        
+        try:
+            cursor = cls.conexion.cursor()
+        except Exception as e:
+            cls.conexion.connect()
+            cursor = cls.conexion.cursor()
+
+        cursor.execute(consulta_update,id)
         
         
+        cls.conexion.commit()
         
+        cls.conexion.close()
         
-        pass
+        print(f"Se actualizo el registro con id {id} !")
