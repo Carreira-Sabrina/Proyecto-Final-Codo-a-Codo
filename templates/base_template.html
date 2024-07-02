@@ -16,11 +16,11 @@
     <!-- BLOCK DE ESTILOS ADICIONALES!!-->
     {% block estilos_adicionales %}{% endblock estilos_adicionales %}
 
-    <link rel="stylesheet" href="../static/estilos/footer.css"> <!-- header/navbar -->
+    <link rel="stylesheet" href="../static/estilos/footer.css"> <!-- footer -->
 
 </head>
 <body>
-    <div class="contenedor-general">
+    <div class="contenedor-general padding-alrededor">
         {% include "componentes/header.html" %}
 
         {% block contenido %}<h2>EL CONTENIDO DE LA PAGINA VA ACÁ !!! </h2>{% endblock contenido %}

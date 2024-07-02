@@ -1,0 +1,102 @@
+/*Variables */
+/*===========*/
+:root{
+    /*Colores*/
+    --color-eerie-black: #1B1B1E;
+    --color-honeydew: #F3FCF0;
+    --color-magenta-dye: #B81365; 
+    --color-caribbean-current: #00798C; 
+    --color-orange-web: #FAA916;
+}
+
+
+h1,p{
+    margin: 2rem 0
+}
+
+p{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
+.tarjeta-excursion{
+    margin-bottom: 1.5rem;
+    border: 2px solid  var(--color-eerie-black);
+    border-radius: 1.75rem;
+}
+
+.tarjeta-excursion__titulo h2{
+    margin-bottom: 1.5rem;
+}
+
+
+
+.datos-excursion{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.75fr;
+    align-items: center;
+    justify-items: center;
+    column-gap: 1rem;
+}
+
+.btn-accion{
+    display: inline-block;
+    padding: 14px 22px;
+    color: var(--color-honeydew);
+    border-radius: 12px;
+    font-weight: bold;
+    
+}
+
+.btn-accion.btn-modificar{
+    background-color: var(--color-caribbean-current);
+}
+
+.btn-accion.btn-eliminar{
+    background-color: var(--color-magenta-dye);
+}
+
+
+/* ESTILOS DE LOS FORMULARIOS */
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.fila-formulario{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.label-id{
+    text-align: center;
+    background-color: var(--color-orange-web);
+}
+
+.fila-formulario label{
+    margin-right: 1.25rem;
+}
+
+.fila-formulario input[type="text"],textarea{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: 5px solid var(--color-caribbean-current);
+}
+
+
+.fila-formulario textarea{
+    min-width: 350px;
+    min-height: 450px;
+}
+
+
+.contenedor-botones{
+    margin-bottom: 2.5rem;
+}

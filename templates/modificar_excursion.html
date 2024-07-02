@@ -1,0 +1,48 @@
+{% extends "base_template.html"%}
+
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='estilos/gestion-reservas.css') }}">
+{% endblock estilos_adicionales %}
+
+
+{% block contenido %}
+
+    <h1 class="texto-centrado">Aquí puede modificar los datos de una excursión de la base de datos</h1>
+
+    <p>Al crear una nueva excursión se mostrará en la sección "Excursiones" de nuestra página web</p>
+
+    <form action="" method="post">
+        <div class="fila-formulario">
+            <!--El id sólo se muestra en una label, no se puede modificar-->
+            <label class="label-id btn-accion" for="">Id: {{objeto_a_modificar.id}}</label>
+        </div>
+        <div class="fila-formulario">
+            <label for="titulo-excursion">Título de la Excursión</label>
+            <input type="text" name="titulo-excursion" id="titulo-excursion" required value="{{objeto_a_modificar.titulo}}">
+        </div>
+        <div class="fila-formulario">
+            <label for="destino-excursion">Destino</label>
+            <input type="text" name="destino-excursion" id="destino-excursion" required value = "{{objeto_a_modificar.destino}}">
+        </div>
+        <div class="fila-formulario">
+            <label for="descripcion-excursion">Descripción</label>
+            <textarea name="descripcion-excursion" id="descripcion-excursion" required>{{objeto_a_modificar.descripcion}}</textarea>
+        </div>
+        <div class="fila-formulario">
+            <label for="precio-excursion">Precio por persona</label>
+            <input type="text" name="precio-excursion" id="precio-excursion" required value = {{objeto_a_modificar.precio_por_persona}}>
+        </div>
+        <div class="fila-formulario">
+            <label for="url-imagen-excursion">Url de la imagen</label>
+            <input type="text" name="url-imagen-excursion" id="url-imagen-excursion" required value = {{objeto_a_modificar.url_imagen}}>
+        </div>
+        <div class="contenedor-botones">
+            <input class="btn-accion btn-modificar" type="submit" value="Enviar datos">
+            <a href="{{url_for('index')}}" class="btn-accion btn-eliminar">Cancelar</a>
+        </div>
+        
+
+    </form><!--fin del formulario-->
+    
+
+{% endblock contenido %}

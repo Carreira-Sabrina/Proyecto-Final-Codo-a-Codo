@@ -1,0 +1,40 @@
+{% extends "base_template.html"%}
+
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='estilos/gestion-reservas.css') }}">
+{% endblock estilos_adicionales %}
+
+
+{% block contenido %}
+
+    <h1 class="texto-centrado">Complete todos los campos para crear una nueva excursión</h1>
+
+    <p>Al crear una nueva excursión se mostrará en la sección "Excursiones" de nuestra página web</p>
+
+    <form action="{{url_for('crear_excursion')}}" method="post">
+        <div class="fila-formulario">
+            <label for="titulo-excursion">Título de la Excursión</label>
+            <input type="text" name="titulo-excursion" id="titulo-excursion" required>
+        </div>
+        <div class="fila-formulario">
+            <label for="destino-excursion">Destino</label>
+            <input type="text" name="destino-excursion" id="destino-excursion" required>
+        </div>
+        <div class="fila-formulario">
+            <label for="descripcion-excursion">Descripción</label>
+            <textarea name="descripcion-excursion" id="descripcion-excursion" required></textarea>
+        </div>
+        <div class="fila-formulario">
+            <label for="precio-excursion">Precio por persona</label>
+            <input type="text" name="precio-excursion" id="precio-excursion" required>
+        </div>
+        <div class="fila-formulario">
+            <label for="url-imagen-excursion">Url de la imagen</label>
+            <input type="text" name="url-imagen-excursion" id="url-imagen-excursion" required>
+        </div>
+        <input class="btn-accion btn-modificar" type="submit" value="Enviar datos">
+        <a href="" class="btn-accion btn-eliminar">Cancelar</a>
+
+    </form><!--fin del formulario-->
+    
+{% endblock contenido %}
