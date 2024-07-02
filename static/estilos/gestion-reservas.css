@@ -10,6 +10,17 @@
 }
 
 
+h1,p{
+    margin: 2rem 0
+}
+
+p{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
 .tarjeta-excursion{
     margin-bottom: 1.5rem;
     border: 2px solid  var(--color-eerie-black);
@@ -39,10 +50,53 @@
     
 }
 
-.btn.btn-modificar{
+.btn-accion.btn-modificar{
     background-color: var(--color-caribbean-current);
 }
 
-.btn.btn-eliminar{
+.btn-accion.btn-eliminar{
     background-color: var(--color-magenta-dye);
+}
+
+
+/* ESTILOS DE LOS FORMULARIOS */
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.fila-formulario{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.label-id{
+    text-align: center;
+    background-color: var(--color-orange-web);
+}
+
+.fila-formulario label{
+    margin-right: 1.25rem;
+}
+
+.fila-formulario input[type="text"],textarea{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: 5px solid var(--color-caribbean-current);
+}
+
+
+.fila-formulario textarea{
+    min-width: 350px;
+    min-height: 450px;
+}
+
+
+.contenedor-botones{
+    margin-bottom: 2.5rem;
 }

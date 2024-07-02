@@ -23,8 +23,8 @@
                     <img src="{{item.url_imagen}}" alt="">
                 </div>
                 <div>
-                    <a class="btn-accion btn-modificar" href="">Modificar</a>
-                    <a class="btn-accion btn-eliminar" href="">Eliminar</a>
+                    <a class="btn-accion btn-modificar" href="{{url_for('modificar_excursion', id =item.id)}}">Modificar</a>
+                    <a class="btn-accion btn-eliminar" href="{{url_for('eliminar_excursion', id =item.id)}}">Eliminar</a>
                 </div>
             </div>
         </article>
