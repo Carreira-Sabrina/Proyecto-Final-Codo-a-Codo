@@ -8,15 +8,16 @@ parametros_conexion_desarrollo={
     'database': 'hotel'
 }
 
-#Sólo para pruebas:
-parametros_conexion_desarrollo_dummy={
+
+parametros_conexion_produccion={
     'user': 'root',
     'password': '0pt1mu5Pr1m3',
     'host': 'localhost',
-    'database': 'dummy'
+    'database': 'hotel'
 }
+
 
 #Conectar con la BD 
 
 #se ponen ** antes del diccionario pasado como parámetro para que lo tome como **kwargs
-conexion =connector.connect(**parametros_conexion_desarrollo_dummy)
+conexion =connector.connect(**parametros_conexion_desarrollo)

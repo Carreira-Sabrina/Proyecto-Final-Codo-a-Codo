@@ -5,12 +5,10 @@ from flask import redirect
 from app import app
 from modelos.entidades import Excursion
 
-#MACHETE PARA EL INDEX
-#  <a class="post-bnt-acciones editar" href="{{url_for('editar_post', id=post[0])}}">Editar post</a>
 
 @app.route("/")
 def index():
-    #Se obtienen las excursiones
+    #Se obtiene una lista de instancias de excursion, con los datos leidos de la base de datos
     excursiones = Excursion.obtener_todos_de_tabla()
     
     return render_template("index.html",info = excursiones) #Info se pasa a index.html para ser mostrado dinámicamente con Jinja
@@ -31,9 +29,6 @@ def crear_excursion():
         _precio = int(request.form["precio-excursion"])
         _url_imagen = request.form["url-imagen-excursion"]
         
-        
-        print(f"El titulo será {_titulo}, en {_destino}, la descripcion es {_descripcion} y la url es {_url_imagen}")
-        
         #Acordarse que el metodo create del CRUD recibe los datos como una tupla !!!
         datos_nueva_excursion = (_titulo,_descripcion,_destino,_precio,_url_imagen)
         
@@ -43,7 +38,6 @@ def crear_excursion():
         nueva_excursion.insertar_en_tabla()
         
         print("Se ha creado un nuevo registro en la base de datos")
-        
         
         #DEBERIA REDIRECCIONAR AL INDEX PARA VER EL LISTADO ACTUALIZADO !
         
